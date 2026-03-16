@@ -88,7 +88,7 @@ export async function POST(req: NextRequest) {
           });
           await tx.vp_transactions.create({
             data: {
-              vp_user: { connect: { id: dbUser.id } },
+              user_id: dbUser.id,
               type: 'DEBIT',
               amount: finalCost,
               balance_before: dbUser.balance ?? 0,
@@ -100,7 +100,7 @@ export async function POST(req: NextRequest) {
         }
         await tx.vp_call_log.create({
           data: {
-            vp_user: { connect: { id: dbUser.id } },
+            user_id: dbUser.id,
             call_id: callId,
             phone_number: formattedPhone,
             otp: hashedOtp,

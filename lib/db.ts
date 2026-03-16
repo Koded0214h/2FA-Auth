@@ -7,9 +7,9 @@ declare global {
 }
 
 function createClient() {
-  const pool = new pg.Pool({
-    connectionString: process.env.DATABASE_URL,
-  });
+  // @ts-ignore
+  const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL });
+  // @ts-ignore
   const adapter = new PrismaPg(pool);
   return new PrismaClient({ adapter });
 }
