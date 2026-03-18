@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + dbUser.api_key,
+        'Authorization': 'Bearer ' + process.env.VOICEPASS_MASTER_KEY,
       },
       body: JSON.stringify({ phone: formattedPhone, otp }),
     });

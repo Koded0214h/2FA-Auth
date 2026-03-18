@@ -28,22 +28,23 @@ export type AggregateVp_transactions = {
 
 export type Vp_transactionsAvgAggregateOutputType = {
   id: number | null
+  user_id: number | null
   amount: number | null
   balance_before: number | null
   balance_after: number | null
-  user_id: number | null
 }
 
 export type Vp_transactionsSumAggregateOutputType = {
   id: number | null
+  user_id: number | null
   amount: number | null
   balance_before: number | null
   balance_after: number | null
-  user_id: number | null
 }
 
 export type Vp_transactionsMinAggregateOutputType = {
   id: number | null
+  user_id: number | null
   type: string | null
   amount: number | null
   balance_before: number | null
@@ -51,11 +52,11 @@ export type Vp_transactionsMinAggregateOutputType = {
   reference: string | null
   created_at: Date | null
   balance_after: number | null
-  user_id: number | null
 }
 
 export type Vp_transactionsMaxAggregateOutputType = {
   id: number | null
+  user_id: number | null
   type: string | null
   amount: number | null
   balance_before: number | null
@@ -63,11 +64,11 @@ export type Vp_transactionsMaxAggregateOutputType = {
   reference: string | null
   created_at: Date | null
   balance_after: number | null
-  user_id: number | null
 }
 
 export type Vp_transactionsCountAggregateOutputType = {
   id: number
+  user_id: number
   type: number
   amount: number
   balance_before: number
@@ -75,29 +76,29 @@ export type Vp_transactionsCountAggregateOutputType = {
   reference: number
   created_at: number
   balance_after: number
-  user_id: number
   _all: number
 }
 
 
 export type Vp_transactionsAvgAggregateInputType = {
   id?: true
+  user_id?: true
   amount?: true
   balance_before?: true
   balance_after?: true
-  user_id?: true
 }
 
 export type Vp_transactionsSumAggregateInputType = {
   id?: true
+  user_id?: true
   amount?: true
   balance_before?: true
   balance_after?: true
-  user_id?: true
 }
 
 export type Vp_transactionsMinAggregateInputType = {
   id?: true
+  user_id?: true
   type?: true
   amount?: true
   balance_before?: true
@@ -105,11 +106,11 @@ export type Vp_transactionsMinAggregateInputType = {
   reference?: true
   created_at?: true
   balance_after?: true
-  user_id?: true
 }
 
 export type Vp_transactionsMaxAggregateInputType = {
   id?: true
+  user_id?: true
   type?: true
   amount?: true
   balance_before?: true
@@ -117,11 +118,11 @@ export type Vp_transactionsMaxAggregateInputType = {
   reference?: true
   created_at?: true
   balance_after?: true
-  user_id?: true
 }
 
 export type Vp_transactionsCountAggregateInputType = {
   id?: true
+  user_id?: true
   type?: true
   amount?: true
   balance_before?: true
@@ -129,7 +130,6 @@ export type Vp_transactionsCountAggregateInputType = {
   reference?: true
   created_at?: true
   balance_after?: true
-  user_id?: true
   _all?: true
 }
 
@@ -221,6 +221,7 @@ export type vp_transactionsGroupByArgs<ExtArgs extends runtime.Types.Extensions.
 
 export type Vp_transactionsGroupByOutputType = {
   id: number
+  user_id: number | null
   type: string | null
   amount: number | null
   balance_before: number | null
@@ -228,7 +229,6 @@ export type Vp_transactionsGroupByOutputType = {
   reference: string | null
   created_at: Date | null
   balance_after: number | null
-  user_id: number | null
   _count: Vp_transactionsCountAggregateOutputType | null
   _avg: Vp_transactionsAvgAggregateOutputType | null
   _sum: Vp_transactionsSumAggregateOutputType | null
@@ -256,6 +256,7 @@ export type vp_transactionsWhereInput = {
   OR?: Prisma.vp_transactionsWhereInput[]
   NOT?: Prisma.vp_transactionsWhereInput | Prisma.vp_transactionsWhereInput[]
   id?: Prisma.IntFilter<"vp_transactions"> | number
+  user_id?: Prisma.IntNullableFilter<"vp_transactions"> | number | null
   type?: Prisma.StringNullableFilter<"vp_transactions"> | string | null
   amount?: Prisma.FloatNullableFilter<"vp_transactions"> | number | null
   balance_before?: Prisma.FloatNullableFilter<"vp_transactions"> | number | null
@@ -263,12 +264,12 @@ export type vp_transactionsWhereInput = {
   reference?: Prisma.StringNullableFilter<"vp_transactions"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"vp_transactions"> | Date | string | null
   balance_after?: Prisma.FloatNullableFilter<"vp_transactions"> | number | null
-  user_id?: Prisma.IntNullableFilter<"vp_transactions"> | number | null
   vp_user?: Prisma.XOR<Prisma.Vp_userNullableScalarRelationFilter, Prisma.vp_userWhereInput> | null
 }
 
 export type vp_transactionsOrderByWithRelationInput = {
   id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrderInput | Prisma.SortOrder
   type?: Prisma.SortOrderInput | Prisma.SortOrder
   amount?: Prisma.SortOrderInput | Prisma.SortOrder
   balance_before?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -276,7 +277,6 @@ export type vp_transactionsOrderByWithRelationInput = {
   reference?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   balance_after?: Prisma.SortOrderInput | Prisma.SortOrder
-  user_id?: Prisma.SortOrderInput | Prisma.SortOrder
   vp_user?: Prisma.vp_userOrderByWithRelationInput
 }
 
@@ -285,6 +285,7 @@ export type vp_transactionsWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.vp_transactionsWhereInput | Prisma.vp_transactionsWhereInput[]
   OR?: Prisma.vp_transactionsWhereInput[]
   NOT?: Prisma.vp_transactionsWhereInput | Prisma.vp_transactionsWhereInput[]
+  user_id?: Prisma.IntNullableFilter<"vp_transactions"> | number | null
   type?: Prisma.StringNullableFilter<"vp_transactions"> | string | null
   amount?: Prisma.FloatNullableFilter<"vp_transactions"> | number | null
   balance_before?: Prisma.FloatNullableFilter<"vp_transactions"> | number | null
@@ -292,12 +293,12 @@ export type vp_transactionsWhereUniqueInput = Prisma.AtLeast<{
   reference?: Prisma.StringNullableFilter<"vp_transactions"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"vp_transactions"> | Date | string | null
   balance_after?: Prisma.FloatNullableFilter<"vp_transactions"> | number | null
-  user_id?: Prisma.IntNullableFilter<"vp_transactions"> | number | null
   vp_user?: Prisma.XOR<Prisma.Vp_userNullableScalarRelationFilter, Prisma.vp_userWhereInput> | null
 }, "id">
 
 export type vp_transactionsOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrderInput | Prisma.SortOrder
   type?: Prisma.SortOrderInput | Prisma.SortOrder
   amount?: Prisma.SortOrderInput | Prisma.SortOrder
   balance_before?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -305,7 +306,6 @@ export type vp_transactionsOrderByWithAggregationInput = {
   reference?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrderInput | Prisma.SortOrder
   balance_after?: Prisma.SortOrderInput | Prisma.SortOrder
-  user_id?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.vp_transactionsCountOrderByAggregateInput
   _avg?: Prisma.vp_transactionsAvgOrderByAggregateInput
   _max?: Prisma.vp_transactionsMaxOrderByAggregateInput
@@ -318,6 +318,7 @@ export type vp_transactionsScalarWhereWithAggregatesInput = {
   OR?: Prisma.vp_transactionsScalarWhereWithAggregatesInput[]
   NOT?: Prisma.vp_transactionsScalarWhereWithAggregatesInput | Prisma.vp_transactionsScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"vp_transactions"> | number
+  user_id?: Prisma.IntNullableWithAggregatesFilter<"vp_transactions"> | number | null
   type?: Prisma.StringNullableWithAggregatesFilter<"vp_transactions"> | string | null
   amount?: Prisma.FloatNullableWithAggregatesFilter<"vp_transactions"> | number | null
   balance_before?: Prisma.FloatNullableWithAggregatesFilter<"vp_transactions"> | number | null
@@ -325,7 +326,6 @@ export type vp_transactionsScalarWhereWithAggregatesInput = {
   reference?: Prisma.StringNullableWithAggregatesFilter<"vp_transactions"> | string | null
   created_at?: Prisma.DateTimeNullableWithAggregatesFilter<"vp_transactions"> | Date | string | null
   balance_after?: Prisma.FloatNullableWithAggregatesFilter<"vp_transactions"> | number | null
-  user_id?: Prisma.IntNullableWithAggregatesFilter<"vp_transactions"> | number | null
 }
 
 export type vp_transactionsCreateInput = {
@@ -341,6 +341,7 @@ export type vp_transactionsCreateInput = {
 
 export type vp_transactionsUncheckedCreateInput = {
   id?: number
+  user_id?: number | null
   type?: string | null
   amount?: number | null
   balance_before?: number | null
@@ -348,7 +349,6 @@ export type vp_transactionsUncheckedCreateInput = {
   reference?: string | null
   created_at?: Date | string | null
   balance_after?: number | null
-  user_id?: number | null
 }
 
 export type vp_transactionsUpdateInput = {
@@ -364,6 +364,7 @@ export type vp_transactionsUpdateInput = {
 
 export type vp_transactionsUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   balance_before?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -371,11 +372,11 @@ export type vp_transactionsUncheckedUpdateInput = {
   reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   balance_after?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 export type vp_transactionsCreateManyInput = {
   id?: number
+  user_id?: number | null
   type?: string | null
   amount?: number | null
   balance_before?: number | null
@@ -383,7 +384,6 @@ export type vp_transactionsCreateManyInput = {
   reference?: string | null
   created_at?: Date | string | null
   balance_after?: number | null
-  user_id?: number | null
 }
 
 export type vp_transactionsUpdateManyMutationInput = {
@@ -398,6 +398,7 @@ export type vp_transactionsUpdateManyMutationInput = {
 
 export type vp_transactionsUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   type?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   amount?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   balance_before?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -405,7 +406,6 @@ export type vp_transactionsUncheckedUpdateManyInput = {
   reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   balance_after?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
-  user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 export type Vp_transactionsListRelationFilter = {
@@ -420,6 +420,7 @@ export type vp_transactionsOrderByRelationAggregateInput = {
 
 export type vp_transactionsCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   type?: Prisma.SortOrder
   amount?: Prisma.SortOrder
   balance_before?: Prisma.SortOrder
@@ -427,19 +428,19 @@ export type vp_transactionsCountOrderByAggregateInput = {
   reference?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   balance_after?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
 }
 
 export type vp_transactionsAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   amount?: Prisma.SortOrder
   balance_before?: Prisma.SortOrder
   balance_after?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
 }
 
 export type vp_transactionsMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   type?: Prisma.SortOrder
   amount?: Prisma.SortOrder
   balance_before?: Prisma.SortOrder
@@ -447,11 +448,11 @@ export type vp_transactionsMaxOrderByAggregateInput = {
   reference?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   balance_after?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
 }
 
 export type vp_transactionsMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   type?: Prisma.SortOrder
   amount?: Prisma.SortOrder
   balance_before?: Prisma.SortOrder
@@ -459,15 +460,14 @@ export type vp_transactionsMinOrderByAggregateInput = {
   reference?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   balance_after?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
 }
 
 export type vp_transactionsSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   amount?: Prisma.SortOrder
   balance_before?: Prisma.SortOrder
   balance_after?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
 }
 
 export type vp_transactionsCreateNestedManyWithoutVp_userInput = {
@@ -564,6 +564,7 @@ export type vp_transactionsScalarWhereInput = {
   OR?: Prisma.vp_transactionsScalarWhereInput[]
   NOT?: Prisma.vp_transactionsScalarWhereInput | Prisma.vp_transactionsScalarWhereInput[]
   id?: Prisma.IntFilter<"vp_transactions"> | number
+  user_id?: Prisma.IntNullableFilter<"vp_transactions"> | number | null
   type?: Prisma.StringNullableFilter<"vp_transactions"> | string | null
   amount?: Prisma.FloatNullableFilter<"vp_transactions"> | number | null
   balance_before?: Prisma.FloatNullableFilter<"vp_transactions"> | number | null
@@ -571,7 +572,6 @@ export type vp_transactionsScalarWhereInput = {
   reference?: Prisma.StringNullableFilter<"vp_transactions"> | string | null
   created_at?: Prisma.DateTimeNullableFilter<"vp_transactions"> | Date | string | null
   balance_after?: Prisma.FloatNullableFilter<"vp_transactions"> | number | null
-  user_id?: Prisma.IntNullableFilter<"vp_transactions"> | number | null
 }
 
 export type vp_transactionsCreateManyVp_userInput = {
@@ -621,6 +621,7 @@ export type vp_transactionsUncheckedUpdateManyWithoutVp_userInput = {
 
 export type vp_transactionsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  user_id?: boolean
   type?: boolean
   amount?: boolean
   balance_before?: boolean
@@ -628,12 +629,12 @@ export type vp_transactionsSelect<ExtArgs extends runtime.Types.Extensions.Inter
   reference?: boolean
   created_at?: boolean
   balance_after?: boolean
-  user_id?: boolean
   vp_user?: boolean | Prisma.vp_transactions$vp_userArgs<ExtArgs>
 }, ExtArgs["result"]["vp_transactions"]>
 
 export type vp_transactionsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  user_id?: boolean
   type?: boolean
   amount?: boolean
   balance_before?: boolean
@@ -641,12 +642,12 @@ export type vp_transactionsSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   reference?: boolean
   created_at?: boolean
   balance_after?: boolean
-  user_id?: boolean
   vp_user?: boolean | Prisma.vp_transactions$vp_userArgs<ExtArgs>
 }, ExtArgs["result"]["vp_transactions"]>
 
 export type vp_transactionsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  user_id?: boolean
   type?: boolean
   amount?: boolean
   balance_before?: boolean
@@ -654,12 +655,12 @@ export type vp_transactionsSelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
   reference?: boolean
   created_at?: boolean
   balance_after?: boolean
-  user_id?: boolean
   vp_user?: boolean | Prisma.vp_transactions$vp_userArgs<ExtArgs>
 }, ExtArgs["result"]["vp_transactions"]>
 
 export type vp_transactionsSelectScalar = {
   id?: boolean
+  user_id?: boolean
   type?: boolean
   amount?: boolean
   balance_before?: boolean
@@ -667,10 +668,9 @@ export type vp_transactionsSelectScalar = {
   reference?: boolean
   created_at?: boolean
   balance_after?: boolean
-  user_id?: boolean
 }
 
-export type vp_transactionsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "type" | "amount" | "balance_before" | "description" | "reference" | "created_at" | "balance_after" | "user_id", ExtArgs["result"]["vp_transactions"]>
+export type vp_transactionsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "type" | "amount" | "balance_before" | "description" | "reference" | "created_at" | "balance_after", ExtArgs["result"]["vp_transactions"]>
 export type vp_transactionsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   vp_user?: boolean | Prisma.vp_transactions$vp_userArgs<ExtArgs>
 }
@@ -688,6 +688,7 @@ export type $vp_transactionsPayload<ExtArgs extends runtime.Types.Extensions.Int
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
+    user_id: number | null
     type: string | null
     amount: number | null
     balance_before: number | null
@@ -695,7 +696,6 @@ export type $vp_transactionsPayload<ExtArgs extends runtime.Types.Extensions.Int
     reference: string | null
     created_at: Date | null
     balance_after: number | null
-    user_id: number | null
   }, ExtArgs["result"]["vp_transactions"]>
   composites: {}
 }
@@ -1121,6 +1121,7 @@ export interface Prisma__vp_transactionsClient<T, Null = never, ExtArgs extends 
  */
 export interface vp_transactionsFieldRefs {
   readonly id: Prisma.FieldRef<"vp_transactions", 'Int'>
+  readonly user_id: Prisma.FieldRef<"vp_transactions", 'Int'>
   readonly type: Prisma.FieldRef<"vp_transactions", 'String'>
   readonly amount: Prisma.FieldRef<"vp_transactions", 'Float'>
   readonly balance_before: Prisma.FieldRef<"vp_transactions", 'Float'>
@@ -1128,7 +1129,6 @@ export interface vp_transactionsFieldRefs {
   readonly reference: Prisma.FieldRef<"vp_transactions", 'String'>
   readonly created_at: Prisma.FieldRef<"vp_transactions", 'DateTime'>
   readonly balance_after: Prisma.FieldRef<"vp_transactions", 'Float'>
-  readonly user_id: Prisma.FieldRef<"vp_transactions", 'Int'>
 }
     
 

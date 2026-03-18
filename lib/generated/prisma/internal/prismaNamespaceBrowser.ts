@@ -95,6 +95,7 @@ export type Vp_userScalarFieldEnum = (typeof Vp_userScalarFieldEnum)[keyof typeo
 
 export const Vp_call_logScalarFieldEnum = {
   id: 'id',
+  user_id: 'user_id',
   call_id: 'call_id',
   gender: 'gender',
   cost: 'cost',
@@ -107,8 +108,7 @@ export const Vp_call_logScalarFieldEnum = {
   start_time: 'start_time',
   answer_time: 'answer_time',
   ring_time: 'ring_time',
-  end_at: 'end_at',
-  user_id: 'user_id'
+  end_at: 'end_at'
 } as const
 
 export type Vp_call_logScalarFieldEnum = (typeof Vp_call_logScalarFieldEnum)[keyof typeof Vp_call_logScalarFieldEnum]
@@ -116,14 +116,14 @@ export type Vp_call_logScalarFieldEnum = (typeof Vp_call_logScalarFieldEnum)[key
 
 export const Vp_transactionsScalarFieldEnum = {
   id: 'id',
+  user_id: 'user_id',
   type: 'type',
   amount: 'amount',
   balance_before: 'balance_before',
   description: 'description',
   reference: 'reference',
   created_at: 'created_at',
-  balance_after: 'balance_after',
-  user_id: 'user_id'
+  balance_after: 'balance_after'
 } as const
 
 export type Vp_transactionsScalarFieldEnum = (typeof Vp_transactionsScalarFieldEnum)[keyof typeof Vp_transactionsScalarFieldEnum]

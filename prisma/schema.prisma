@@ -8,33 +8,34 @@ datasource db {
 }
 
 model vp_user {
-  id              Int               @id @default(autoincrement())
-  balance         Float?            @default(0)
-  is_active       Boolean?          @default(true)
-  api_key         String?           @db.VarChar(255)
-  last_bal_updated DateTime?        @db.Timestamp(6)
-  company         String?           @db.VarChar(255)
-  email           String?           @unique @db.VarChar(255)
-  name            String?           @db.VarChar(255)
-  password        String?           @db.VarChar(255)
-  phone           String?           @db.VarChar(50)
-  role            String?           @default("user") @db.VarChar(50)
-  user_type       String?           @default("prepaid") @db.VarChar(50)
-  created_at      DateTime?         @default(now()) @db.Timestamp(6)
-  updated_at      DateTime?         @db.Timestamp(6)
-  webhook_url     String?           @db.VarChar(255)
-  call_logs       vp_call_log[]
-  vp_transactions vp_transactions[]
+  id               Int               @id @default(autoincrement())
+  balance          Float?            @default(0)
+  is_active        Boolean?          @default(true)
+  api_key          String?           @db.VarChar(255)
+  last_bal_updated DateTime?         @db.Timestamp(6)
+  company          String?           @db.VarChar(255)
+  email            String?           @unique @db.VarChar(255)
+  name             String?           @db.VarChar(255)
+  password         String?           @db.VarChar(255)
+  phone            String?           @db.VarChar(50)
+  role             String?           @default("user") @db.VarChar(50)
+  user_type        String?           @default("prepaid") @db.VarChar(50)
+  created_at       DateTime?         @default(now()) @db.Timestamp(6)
+  updated_at       DateTime?         @db.Timestamp(6)
+  webhook_url      String?           @db.VarChar(255)
+  call_logs        vp_call_log[]
+  vp_transactions  vp_transactions[]
 }
 
 model vp_call_log {
   id           Int      @id @default(autoincrement())
+  user_id      Int?
   call_id      String?  @db.VarChar(255)
   gender       String?  @db.VarChar(50)
   cost         Float?
   language     String?  @db.VarChar(100)
   phone_number String?  @db.VarChar(50)
-  otp          String?  @db.VarChar(50)
+  otp          String?  @db.VarChar(255)
   status       String?  @db.VarChar(100)
   duration     String?  @db.VarChar(50)
   created_at   String?  @db.VarChar(100)
@@ -42,12 +43,12 @@ model vp_call_log {
   answer_time  String?  @db.VarChar(100)
   ring_time    String?  @db.VarChar(100)
   end_at       String?  @db.VarChar(100)
-  user_id      Int?
   user         vp_user? @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 }
 
 model vp_transactions {
   id             Int       @id @default(autoincrement())
+  user_id        Int?
   type           String?   @default("DEBIT") @db.VarChar(50)
   amount         Float?
   balance_before Float?
@@ -55,6 +56,5 @@ model vp_transactions {
   reference      String?   @db.VarChar(255)
   created_at     DateTime? @default(now()) @db.Timestamp(6)
   balance_after  Float?
-  user_id        Int?
   vp_user        vp_user?  @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 }

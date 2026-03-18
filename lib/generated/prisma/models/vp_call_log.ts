@@ -28,18 +28,19 @@ export type AggregateVp_call_log = {
 
 export type Vp_call_logAvgAggregateOutputType = {
   id: number | null
-  cost: number | null
   user_id: number | null
+  cost: number | null
 }
 
 export type Vp_call_logSumAggregateOutputType = {
   id: number | null
-  cost: number | null
   user_id: number | null
+  cost: number | null
 }
 
 export type Vp_call_logMinAggregateOutputType = {
   id: number | null
+  user_id: number | null
   call_id: string | null
   gender: string | null
   cost: number | null
@@ -53,11 +54,11 @@ export type Vp_call_logMinAggregateOutputType = {
   answer_time: string | null
   ring_time: string | null
   end_at: string | null
-  user_id: number | null
 }
 
 export type Vp_call_logMaxAggregateOutputType = {
   id: number | null
+  user_id: number | null
   call_id: string | null
   gender: string | null
   cost: number | null
@@ -71,11 +72,11 @@ export type Vp_call_logMaxAggregateOutputType = {
   answer_time: string | null
   ring_time: string | null
   end_at: string | null
-  user_id: number | null
 }
 
 export type Vp_call_logCountAggregateOutputType = {
   id: number
+  user_id: number
   call_id: number
   gender: number
   cost: number
@@ -89,25 +90,25 @@ export type Vp_call_logCountAggregateOutputType = {
   answer_time: number
   ring_time: number
   end_at: number
-  user_id: number
   _all: number
 }
 
 
 export type Vp_call_logAvgAggregateInputType = {
   id?: true
-  cost?: true
   user_id?: true
+  cost?: true
 }
 
 export type Vp_call_logSumAggregateInputType = {
   id?: true
-  cost?: true
   user_id?: true
+  cost?: true
 }
 
 export type Vp_call_logMinAggregateInputType = {
   id?: true
+  user_id?: true
   call_id?: true
   gender?: true
   cost?: true
@@ -121,11 +122,11 @@ export type Vp_call_logMinAggregateInputType = {
   answer_time?: true
   ring_time?: true
   end_at?: true
-  user_id?: true
 }
 
 export type Vp_call_logMaxAggregateInputType = {
   id?: true
+  user_id?: true
   call_id?: true
   gender?: true
   cost?: true
@@ -139,11 +140,11 @@ export type Vp_call_logMaxAggregateInputType = {
   answer_time?: true
   ring_time?: true
   end_at?: true
-  user_id?: true
 }
 
 export type Vp_call_logCountAggregateInputType = {
   id?: true
+  user_id?: true
   call_id?: true
   gender?: true
   cost?: true
@@ -157,7 +158,6 @@ export type Vp_call_logCountAggregateInputType = {
   answer_time?: true
   ring_time?: true
   end_at?: true
-  user_id?: true
   _all?: true
 }
 
@@ -249,6 +249,7 @@ export type vp_call_logGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 
 export type Vp_call_logGroupByOutputType = {
   id: number
+  user_id: number | null
   call_id: string | null
   gender: string | null
   cost: number | null
@@ -262,7 +263,6 @@ export type Vp_call_logGroupByOutputType = {
   answer_time: string | null
   ring_time: string | null
   end_at: string | null
-  user_id: number | null
   _count: Vp_call_logCountAggregateOutputType | null
   _avg: Vp_call_logAvgAggregateOutputType | null
   _sum: Vp_call_logSumAggregateOutputType | null
@@ -290,6 +290,7 @@ export type vp_call_logWhereInput = {
   OR?: Prisma.vp_call_logWhereInput[]
   NOT?: Prisma.vp_call_logWhereInput | Prisma.vp_call_logWhereInput[]
   id?: Prisma.IntFilter<"vp_call_log"> | number
+  user_id?: Prisma.IntNullableFilter<"vp_call_log"> | number | null
   call_id?: Prisma.StringNullableFilter<"vp_call_log"> | string | null
   gender?: Prisma.StringNullableFilter<"vp_call_log"> | string | null
   cost?: Prisma.FloatNullableFilter<"vp_call_log"> | number | null
@@ -303,12 +304,12 @@ export type vp_call_logWhereInput = {
   answer_time?: Prisma.StringNullableFilter<"vp_call_log"> | string | null
   ring_time?: Prisma.StringNullableFilter<"vp_call_log"> | string | null
   end_at?: Prisma.StringNullableFilter<"vp_call_log"> | string | null
-  user_id?: Prisma.IntNullableFilter<"vp_call_log"> | number | null
   user?: Prisma.XOR<Prisma.Vp_userNullableScalarRelationFilter, Prisma.vp_userWhereInput> | null
 }
 
 export type vp_call_logOrderByWithRelationInput = {
   id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrderInput | Prisma.SortOrder
   call_id?: Prisma.SortOrderInput | Prisma.SortOrder
   gender?: Prisma.SortOrderInput | Prisma.SortOrder
   cost?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -322,7 +323,6 @@ export type vp_call_logOrderByWithRelationInput = {
   answer_time?: Prisma.SortOrderInput | Prisma.SortOrder
   ring_time?: Prisma.SortOrderInput | Prisma.SortOrder
   end_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  user_id?: Prisma.SortOrderInput | Prisma.SortOrder
   user?: Prisma.vp_userOrderByWithRelationInput
 }
 
@@ -331,6 +331,7 @@ export type vp_call_logWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.vp_call_logWhereInput | Prisma.vp_call_logWhereInput[]
   OR?: Prisma.vp_call_logWhereInput[]
   NOT?: Prisma.vp_call_logWhereInput | Prisma.vp_call_logWhereInput[]
+  user_id?: Prisma.IntNullableFilter<"vp_call_log"> | number | null
   call_id?: Prisma.StringNullableFilter<"vp_call_log"> | string | null
   gender?: Prisma.StringNullableFilter<"vp_call_log"> | string | null
   cost?: Prisma.FloatNullableFilter<"vp_call_log"> | number | null
@@ -344,12 +345,12 @@ export type vp_call_logWhereUniqueInput = Prisma.AtLeast<{
   answer_time?: Prisma.StringNullableFilter<"vp_call_log"> | string | null
   ring_time?: Prisma.StringNullableFilter<"vp_call_log"> | string | null
   end_at?: Prisma.StringNullableFilter<"vp_call_log"> | string | null
-  user_id?: Prisma.IntNullableFilter<"vp_call_log"> | number | null
   user?: Prisma.XOR<Prisma.Vp_userNullableScalarRelationFilter, Prisma.vp_userWhereInput> | null
 }, "id">
 
 export type vp_call_logOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrderInput | Prisma.SortOrder
   call_id?: Prisma.SortOrderInput | Prisma.SortOrder
   gender?: Prisma.SortOrderInput | Prisma.SortOrder
   cost?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -363,7 +364,6 @@ export type vp_call_logOrderByWithAggregationInput = {
   answer_time?: Prisma.SortOrderInput | Prisma.SortOrder
   ring_time?: Prisma.SortOrderInput | Prisma.SortOrder
   end_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  user_id?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.vp_call_logCountOrderByAggregateInput
   _avg?: Prisma.vp_call_logAvgOrderByAggregateInput
   _max?: Prisma.vp_call_logMaxOrderByAggregateInput
@@ -376,6 +376,7 @@ export type vp_call_logScalarWhereWithAggregatesInput = {
   OR?: Prisma.vp_call_logScalarWhereWithAggregatesInput[]
   NOT?: Prisma.vp_call_logScalarWhereWithAggregatesInput | Prisma.vp_call_logScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"vp_call_log"> | number
+  user_id?: Prisma.IntNullableWithAggregatesFilter<"vp_call_log"> | number | null
   call_id?: Prisma.StringNullableWithAggregatesFilter<"vp_call_log"> | string | null
   gender?: Prisma.StringNullableWithAggregatesFilter<"vp_call_log"> | string | null
   cost?: Prisma.FloatNullableWithAggregatesFilter<"vp_call_log"> | number | null
@@ -389,7 +390,6 @@ export type vp_call_logScalarWhereWithAggregatesInput = {
   answer_time?: Prisma.StringNullableWithAggregatesFilter<"vp_call_log"> | string | null
   ring_time?: Prisma.StringNullableWithAggregatesFilter<"vp_call_log"> | string | null
   end_at?: Prisma.StringNullableWithAggregatesFilter<"vp_call_log"> | string | null
-  user_id?: Prisma.IntNullableWithAggregatesFilter<"vp_call_log"> | number | null
 }
 
 export type vp_call_logCreateInput = {
@@ -411,6 +411,7 @@ export type vp_call_logCreateInput = {
 
 export type vp_call_logUncheckedCreateInput = {
   id?: number
+  user_id?: number | null
   call_id?: string | null
   gender?: string | null
   cost?: number | null
@@ -424,7 +425,6 @@ export type vp_call_logUncheckedCreateInput = {
   answer_time?: string | null
   ring_time?: string | null
   end_at?: string | null
-  user_id?: number | null
 }
 
 export type vp_call_logUpdateInput = {
@@ -446,6 +446,7 @@ export type vp_call_logUpdateInput = {
 
 export type vp_call_logUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   call_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -459,11 +460,11 @@ export type vp_call_logUncheckedUpdateInput = {
   answer_time?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ring_time?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   end_at?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 export type vp_call_logCreateManyInput = {
   id?: number
+  user_id?: number | null
   call_id?: string | null
   gender?: string | null
   cost?: number | null
@@ -477,7 +478,6 @@ export type vp_call_logCreateManyInput = {
   answer_time?: string | null
   ring_time?: string | null
   end_at?: string | null
-  user_id?: number | null
 }
 
 export type vp_call_logUpdateManyMutationInput = {
@@ -498,6 +498,7 @@ export type vp_call_logUpdateManyMutationInput = {
 
 export type vp_call_logUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   call_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   gender?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cost?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
@@ -511,7 +512,6 @@ export type vp_call_logUncheckedUpdateManyInput = {
   answer_time?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   ring_time?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   end_at?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 export type Vp_call_logListRelationFilter = {
@@ -526,6 +526,7 @@ export type vp_call_logOrderByRelationAggregateInput = {
 
 export type vp_call_logCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   call_id?: Prisma.SortOrder
   gender?: Prisma.SortOrder
   cost?: Prisma.SortOrder
@@ -539,17 +540,17 @@ export type vp_call_logCountOrderByAggregateInput = {
   answer_time?: Prisma.SortOrder
   ring_time?: Prisma.SortOrder
   end_at?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
 }
 
 export type vp_call_logAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  cost?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  cost?: Prisma.SortOrder
 }
 
 export type vp_call_logMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   call_id?: Prisma.SortOrder
   gender?: Prisma.SortOrder
   cost?: Prisma.SortOrder
@@ -563,11 +564,11 @@ export type vp_call_logMaxOrderByAggregateInput = {
   answer_time?: Prisma.SortOrder
   ring_time?: Prisma.SortOrder
   end_at?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
 }
 
 export type vp_call_logMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   call_id?: Prisma.SortOrder
   gender?: Prisma.SortOrder
   cost?: Prisma.SortOrder
@@ -581,13 +582,12 @@ export type vp_call_logMinOrderByAggregateInput = {
   answer_time?: Prisma.SortOrder
   ring_time?: Prisma.SortOrder
   end_at?: Prisma.SortOrder
-  user_id?: Prisma.SortOrder
 }
 
 export type vp_call_logSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  cost?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  cost?: Prisma.SortOrder
 }
 
 export type vp_call_logCreateNestedManyWithoutUserInput = {
@@ -704,6 +704,7 @@ export type vp_call_logScalarWhereInput = {
   OR?: Prisma.vp_call_logScalarWhereInput[]
   NOT?: Prisma.vp_call_logScalarWhereInput | Prisma.vp_call_logScalarWhereInput[]
   id?: Prisma.IntFilter<"vp_call_log"> | number
+  user_id?: Prisma.IntNullableFilter<"vp_call_log"> | number | null
   call_id?: Prisma.StringNullableFilter<"vp_call_log"> | string | null
   gender?: Prisma.StringNullableFilter<"vp_call_log"> | string | null
   cost?: Prisma.FloatNullableFilter<"vp_call_log"> | number | null
@@ -717,7 +718,6 @@ export type vp_call_logScalarWhereInput = {
   answer_time?: Prisma.StringNullableFilter<"vp_call_log"> | string | null
   ring_time?: Prisma.StringNullableFilter<"vp_call_log"> | string | null
   end_at?: Prisma.StringNullableFilter<"vp_call_log"> | string | null
-  user_id?: Prisma.IntNullableFilter<"vp_call_log"> | number | null
 }
 
 export type vp_call_logCreateManyUserInput = {
@@ -791,6 +791,7 @@ export type vp_call_logUncheckedUpdateManyWithoutUserInput = {
 
 export type vp_call_logSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  user_id?: boolean
   call_id?: boolean
   gender?: boolean
   cost?: boolean
@@ -804,12 +805,12 @@ export type vp_call_logSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   answer_time?: boolean
   ring_time?: boolean
   end_at?: boolean
-  user_id?: boolean
   user?: boolean | Prisma.vp_call_log$userArgs<ExtArgs>
 }, ExtArgs["result"]["vp_call_log"]>
 
 export type vp_call_logSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  user_id?: boolean
   call_id?: boolean
   gender?: boolean
   cost?: boolean
@@ -823,12 +824,12 @@ export type vp_call_logSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   answer_time?: boolean
   ring_time?: boolean
   end_at?: boolean
-  user_id?: boolean
   user?: boolean | Prisma.vp_call_log$userArgs<ExtArgs>
 }, ExtArgs["result"]["vp_call_log"]>
 
 export type vp_call_logSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  user_id?: boolean
   call_id?: boolean
   gender?: boolean
   cost?: boolean
@@ -842,12 +843,12 @@ export type vp_call_logSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   answer_time?: boolean
   ring_time?: boolean
   end_at?: boolean
-  user_id?: boolean
   user?: boolean | Prisma.vp_call_log$userArgs<ExtArgs>
 }, ExtArgs["result"]["vp_call_log"]>
 
 export type vp_call_logSelectScalar = {
   id?: boolean
+  user_id?: boolean
   call_id?: boolean
   gender?: boolean
   cost?: boolean
@@ -861,10 +862,9 @@ export type vp_call_logSelectScalar = {
   answer_time?: boolean
   ring_time?: boolean
   end_at?: boolean
-  user_id?: boolean
 }
 
-export type vp_call_logOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "call_id" | "gender" | "cost" | "language" | "phone_number" | "otp" | "status" | "duration" | "created_at" | "start_time" | "answer_time" | "ring_time" | "end_at" | "user_id", ExtArgs["result"]["vp_call_log"]>
+export type vp_call_logOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "call_id" | "gender" | "cost" | "language" | "phone_number" | "otp" | "status" | "duration" | "created_at" | "start_time" | "answer_time" | "ring_time" | "end_at", ExtArgs["result"]["vp_call_log"]>
 export type vp_call_logInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.vp_call_log$userArgs<ExtArgs>
 }
@@ -882,6 +882,7 @@ export type $vp_call_logPayload<ExtArgs extends runtime.Types.Extensions.Interna
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
+    user_id: number | null
     call_id: string | null
     gender: string | null
     cost: number | null
@@ -895,7 +896,6 @@ export type $vp_call_logPayload<ExtArgs extends runtime.Types.Extensions.Interna
     answer_time: string | null
     ring_time: string | null
     end_at: string | null
-    user_id: number | null
   }, ExtArgs["result"]["vp_call_log"]>
   composites: {}
 }
@@ -1321,6 +1321,7 @@ export interface Prisma__vp_call_logClient<T, Null = never, ExtArgs extends runt
  */
 export interface vp_call_logFieldRefs {
   readonly id: Prisma.FieldRef<"vp_call_log", 'Int'>
+  readonly user_id: Prisma.FieldRef<"vp_call_log", 'Int'>
   readonly call_id: Prisma.FieldRef<"vp_call_log", 'String'>
   readonly gender: Prisma.FieldRef<"vp_call_log", 'String'>
   readonly cost: Prisma.FieldRef<"vp_call_log", 'Float'>
@@ -1334,7 +1335,6 @@ export interface vp_call_logFieldRefs {
   readonly answer_time: Prisma.FieldRef<"vp_call_log", 'String'>
   readonly ring_time: Prisma.FieldRef<"vp_call_log", 'String'>
   readonly end_at: Prisma.FieldRef<"vp_call_log", 'String'>
-  readonly user_id: Prisma.FieldRef<"vp_call_log", 'Int'>
 }
     
 
